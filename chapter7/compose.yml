@@ -8,7 +8,7 @@ volumes:
 services:
 
   fe-app:
-    container_name: webl
+    container_name: web1
     image: quay.io/dorrabl/my_httpd:latest
     ports:
       - "8081:8080"
