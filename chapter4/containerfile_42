@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com:8443/ubi8/ubi:latest
+FROM registry.access.redhat.com/ubi8/ubi:latest
 
 ENV GREETING="Hello World"
 
