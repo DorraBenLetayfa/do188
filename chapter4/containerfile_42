@@ -1,0 +1,7 @@
+FROM registry.access.redhat.com:8443/ubi8/ubi:latest
+
+ENV GREETING="Hello World"
+
+ENTRYPOINT [ "printenv" ]
+
+CMD [ "GREETING" ]
