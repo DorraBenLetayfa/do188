@@ -1,0 +1,34 @@
+networks:
+  webapps-net: {}
+  db-net: {}
+
+volumes:
+  worlddb-vol: {}
+
+services:
+
+  fe-app:
+    container_name: webl
+    image: quay.io/dorrabl/my_httpd:latest
+    ports:
+      - "8081:8080"
+    networks:
+      - webapps-net
+    volumes:
+      - /home/student/webroot:/var/www/html:Z
+
+  db-app:
+    container_name: db
+    image: quay.io/dorrabl/mysql-57-rhel7:latest
+    ports:
+      - "3306:3306"
+    networks:
+      - webapps-net
+      - db-net
+    volumes: 
+      - worlddb-vol:/var/lib/mysql/data:Z
+    environment: 
+      - MYSQL_USER=dorra
+      - MYSQL_PASSWORD=redhat123
+      - MYSQL_DATABASE=world
+      - MYSQL_ROOT_PASSWORD=redhat123
